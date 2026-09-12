@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4b0a0xq7"]
+
+[ext_resource type="Script" path="res://scripts/weather_system.gd" id="1_weather"]
+[ext_resource type="Script" path="res://scripts/game/player_controller.gd" id="2_player"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+
+[node name="GameWorld" type="Node3D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("3_manager")
+
+[node name="WeatherSystem" type="Node3D" parent="."]
+script = ExtResource("1_weather")
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.433013, 0.25, 0, 0.866025, 0.5, -0.5, -0.433013, 0.75, 0, 10, 0)
+shadow_enabled = true
+
+[node name="PlayerCar" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("2_player")
+
+[node name="Camera3D" type="Camera3D" parent="PlayerCar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3)
+fov = 75.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerCar"]
+mesh = BoxMesh.new()
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCar"]
+shape = BoxShape3D.new()
+
+[node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -1, 0)
+material_override = StandardMaterial3D.new()
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="GameHUD" type="Control" parent="HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Crosshair" type="Label" parent="HUD/GameHUD"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10
+offset_top = -10
+offset_right = 10
+offset_bottom = 10
+text = "✱"
+theme_override_font_sizes/font_size = 24
+alignment = 1
+vertical_alignment = 1
+
+[node name="Radar" type="Label" parent="HUD/GameHUD"]
+anchor_left = 0.9
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.2
+text = "📡 РАДАР"
+theme_override_font_sizes/font_size = 12
+
+[node name="Minimap" type="Label" parent="HUD/GameHUD"]
+anchor_left = 0.9
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.1
+text = "🗺️ КАРТА"
+theme_override_font_sizes/font_size = 12
+
+[node name="MoneyLabel" type="Label" parent="HUD/GameHUD"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.2
+anchor_bottom = 0.1
+text = "💰 $0"
+theme_override_font_sizes/font_size = 16

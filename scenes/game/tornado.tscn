@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://tornado1"]
+
+[ext_resource type="Script" path="res://scripts/entities/tornado.gd" id="1_tornado"]
+
+[node name="Tornado" type="Node3D"]
+script = ExtResource("1_tornado")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = CylinderMesh.new()
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = CapsuleShape3D.new()

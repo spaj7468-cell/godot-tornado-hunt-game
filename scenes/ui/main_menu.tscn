@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccl0vykxq7"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_e0cky"]
+
+[node name="MainMenu" type="Control"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_e0cky")
+
+[node name="Background" type="ColorRect"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.1, 0.15, 1.0)
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 200.0
+alignment = 1
+
+[node name="Title" type="Label"]
+text = "TORNADO HUNT"
+theme_override_font_sizes/font_size = 64
+
+[node name="Subtitle" type="Label"]
+text = "Chase the Storm"
+theme_override_font_sizes/font_size = 24
+
+[node name="Spacer" type="Control"]
+custom_minimum_size = Vector2(0, 40)
+
+[node name="PlayButton" type="Button"]
+text = "PLAY"
+custom_minimum_size = Vector2(300, 60)
+theme_override_font_sizes/font_size = 32
+
+[node name="SettingsButton" type="Button"]
+text = "SETTINGS"
+custom_minimum_size = Vector2(300, 60)
+theme_override_font_sizes/font_size = 32
+
+[node name="QuitButton" type="Button"]
+text = "QUIT"
+custom_minimum_size = Vector2(300, 60)
+theme_override_font_sizes/font_size = 32
