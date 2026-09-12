@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://game_world"]
+
+[node name="GameWorld" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.433013, 0.25, 0, 0.866025, 0.5, -0.5, -0.433013, 0.75, 0, 10, 0)
+shadow_enabled = true
+
+[node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -1, 0)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = BoxMesh.new()
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = BoxShape3D.new()
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3)
+fov = 75.0
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Crosshair" type="Label" parent="HUD/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+text = "✱"
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="HUD/Control"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.3
+anchor_bottom = 0.1
+text = "💰 Money: $0"
+theme_override_font_sizes/font_size = 18
+
+[node name="WeatherLabel" type="Label" parent="HUD/Control"]
+anchor_left = 0.0
+anchor_top = 0.1
+anchor_right = 0.3
+anchor_bottom = 0.2
+text = "Weather: Clear"
+theme_override_font_sizes/font_size = 14
+
+[node name="RadarButton" type="Button" parent="HUD/Control"]
+anchor_left = 0.85
+anchor_top = 0.05
+anchor_right = 0.98
+anchor_bottom = 0.15
+text = "📡 RADAR"
+
+[node name="MapButton" type="Button" parent="HUD/Control"]
+anchor_left = 0.85
+anchor_top = 0.2
+anchor_right = 0.98
+anchor_bottom = 0.3
+text = "🗺️ MAP"
