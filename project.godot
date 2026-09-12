@@ -1,0 +1,26 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go in here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   property=value ; assign values to properties
+
+config_version=5
+
+[application]
+
+config/name="Tornado Hunt Game"
+config/version="1.0.0"
+run/main_scene="res://scenes/ui/main_menu.tscn"
+config/features=PackedStringArray("4.1", "Forward Plus")
+config/icon="res://assets/icon.png"
+
+[physics]
+
+physics/3d/default_gravity=9.8
+
+[rendering]
+
+renderer/rendering_method="forward_plus"
+renderer/textures/vram_compression/import_etc2_astc=true
