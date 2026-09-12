@@ -1,13 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccl0vykxq7"]
+[gd_scene load_steps=2 format=3 uid="uid://main_menu"]
 
-[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_e0cky"]
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="MainMenuScript"]
 
 [node name="MainMenu" type="Control"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource("1_e0cky")
+script = ExtResource("MainMenuScript")
 
 [node name="Background" type="ColorRect"]
 anchor_left = 0.0

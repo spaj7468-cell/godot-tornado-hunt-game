@@ -1,16 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4b0a0xq7"]
+[gd_scene load_steps=4 format=3 uid="uid://game_world"]
 
-[ext_resource type="Script" path="res://scripts/weather_system.gd" id="1_weather"]
-[ext_resource type="Script" path="res://scripts/game/player_controller.gd" id="2_player"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_manager"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="GameManagerScript"]
+[ext_resource type="Script" path="res://scripts/weather_system.gd" id="WeatherScript"]
+[ext_resource type="Script" path="res://scripts/player_controller.gd" id="PlayerScript"]
 
 [node name="GameWorld" type="Node3D"]
 
 [node name="GameManager" type="Node" parent="."]
-script = ExtResource("3_manager")
+script = ExtResource("GameManagerScript")
 
 [node name="WeatherSystem" type="Node3D" parent="."]
-script = ExtResource("1_weather")
+script = ExtResource("WeatherScript")
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 
@@ -20,17 +20,17 @@ shadow_enabled = true
 
 [node name="PlayerCar" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("2_player")
-
-[node name="Camera3D" type="Camera3D" parent="PlayerCar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3)
-fov = 75.0
+script = ExtResource("PlayerScript")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerCar"]
 mesh = BoxMesh.new()
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCar"]
 shape = BoxShape3D.new()
+
+[node name="Camera3D" type="Camera3D" parent="PlayerCar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3)
+fov = 75.0
 
 [node name="Ground" type="CSGBox3D" parent="."]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -1, 0)
@@ -47,35 +47,52 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -10
-offset_top = -10
-offset_right = 10
-offset_bottom = 10
-text = "✱"
-theme_override_font_sizes/font_size = 24
+offset_left = -15
+offset_top = -15
+offset_right = 15
+offset_bottom = 15
+text = "✦"
+theme_override_font_sizes/font_size = 28
 alignment = 1
 vertical_alignment = 1
 
-[node name="Radar" type="Label" parent="HUD/GameHUD"]
-anchor_left = 0.9
-anchor_top = 0.1
-anchor_right = 1.0
-anchor_bottom = 0.2
-text = "📡 РАДАР"
+[node name="RadarButton" type="Button" parent="HUD/GameHUD"]
+anchor_left = 0.85
+anchor_top = 0.05
+anchor_right = 0.98
+anchor_bottom = 0.15
+text = "📡 RADAR"
 theme_override_font_sizes/font_size = 12
 
-[node name="Minimap" type="Label" parent="HUD/GameHUD"]
-anchor_left = 0.9
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 0.1
-text = "🗺️ КАРТА"
+[node name="MinimapButton" type="Button" parent="HUD/GameHUD"]
+anchor_left = 0.85
+anchor_top = 0.18
+anchor_right = 0.98
+anchor_bottom = 0.28
+text = "🗺️ MAP"
 theme_override_font_sizes/font_size = 12
 
 [node name="MoneyLabel" type="Label" parent="HUD/GameHUD"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.2
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.25
 anchor_bottom = 0.1
-text = "💰 $0"
-theme_override_font_sizes/font_size = 16
+text = "💰 Money: $0"
+theme_override_font_sizes/font_size = 18
+
+[node name="WeatherLabel" type="Label" parent="HUD/GameHUD"]
+anchor_left = 0.02
+anchor_top = 0.12
+anchor_right = 0.35
+anchor_bottom = 0.2
+text = "Weather: Clear"
+theme_override_font_sizes/font_size = 14
+
+[node name="TornadoCount" type="Label" parent="HUD/GameHUD"]
+anchor_left = 0.85
+anchor_top = 0.31
+anchor_right = 0.98
+anchor_bottom = 0.39
+text = "Tornadoes: 0"
+theme_override_font_sizes/font_size = 12
+alignment = 1

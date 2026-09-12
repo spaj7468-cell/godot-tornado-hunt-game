@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://tornado1"]
+[gd_scene load_steps=2 format=3 uid="uid://tornado"]
 
-[ext_resource type="Script" path="res://scripts/entities/tornado.gd" id="1_tornado"]
+[ext_resource type="Script" path="res://scripts/entities/tornado.gd" id="TornadoScript"]
 
 [node name="Tornado" type="Node3D"]
-script = ExtResource("1_tornado")
+script = ExtResource("TornadoScript")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = CylinderMesh.new()

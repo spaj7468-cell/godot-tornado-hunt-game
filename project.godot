@@ -13,8 +13,8 @@ config_version=5
 config/name="Tornado Hunt Game"
 config/version="1.0.0"
 run/main_scene="res://scenes/ui/main_menu.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://assets/icon.png"
+config/features=PackedStringArray("4.7", "Forward Plus")
+config/icon="res://assets/icon.svg"
 
 [physics]
 
