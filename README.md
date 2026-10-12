@@ -88,3 +88,13 @@
 
 Годот 4.1+  
 Лицензия: MIT
+
+
+## Project links
+
+This game is an independent prototype in the creator's wider project collection. It is not part of the stable QKC product line.
+
+- [OuRi Corp — project directory](https://spaj7468-cell.github.io/ouri-corp/)
+- [All GitHub repositories](https://github.com/spaj7468-cell?tab=repositories)
+
+Projects in the collection were created at different times and have different scopes and maturity levels; this prototype may change independently of the other sites.
