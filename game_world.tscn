@@ -1,15 +1,21 @@
 [gd_scene format=3 uid="uid://game_world"]
 
+[ext_resource type="Script" path="res://player.gd" id="1_player"]
+[ext_resource type="Script" path="res://game_world.gd" id="2_world"]
+
 [node name="GameWorld" type="Node3D"]
+script = ExtResource("2_world")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.866025, -0.433013, 0.25, 0, 0.866025, 0.5, -0.5, -0.433013, 0.75, 0, 10, 0)
 shadow_enabled = true
 
 [node name="Ground" type="CSGBox3D" parent="."]
+use_collision = true
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -1, 0)
 
 [node name="Player" type="CharacterBody3D" parent="."]
+script = ExtResource("1_player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
